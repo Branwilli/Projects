@@ -1,0 +1,95 @@
+{
+        "intents": [
+          {
+            "tag": "greeting",
+            "patterns": [
+              "Hello",
+              "Hi there",
+              "Good morning",
+              "Good afternoon",
+              "Hey",
+              "Greetings"
+            ],
+            "responses": [
+              "Welcome to University Help Desk! How may I assist you today?",
+              "Hello! How can I help with your university query?",
+              "Good day! What information do you need?"
+            ]
+          },
+          {
+            "tag": "goodbye",
+            "patterns": [
+              "Goodbye",
+              "See you later",
+              "Bye",
+              "Have a good day",
+              "Thanks for your help"
+            ],
+            "responses": [
+              "Thank you for contacting University Help Desk!",
+              "Have a great day!",
+              "Goodbye! Come back if you have more questions."
+            ]
+          },
+          {
+            "tag": "admission_requirements",
+            "patterns": [
+              "What are the admission requirements?",
+              "How do I apply?",
+              "What documents do I need?",
+              "Entry criteria",
+              "Application process"
+            ],
+            "responses": [
+              "Our standard requirements include: High school diploma, 3.0 GPA minimum, and SAT/ACT scores. International students need TOEFL/IELTS.",
+              "You'll need to submit: 1) Application form 2) Transcripts 3) Test scores 4) Personal statement",
+              "Requirements vary by program. Shall I check specifics for your intended major?"
+            ]
+          },
+          {
+            "tag": "tuition_fees",
+            "patterns": [
+              "How much is tuition?",
+              "What are the fees?",
+              "Cost of attendance",
+              "Tuition rates",
+              "Is financial aid available?"
+            ],
+            "responses": [
+              "Undergraduate tuition is $15,000 per semester. Housing and meals average $5,000/semester.",
+              "We offer need-based and merit scholarships. Would you like our financial aid checklist?",
+              "Tuition varies by program. For accurate figures, may I know your intended degree level (BS/MS/PhD)?"
+            ]
+          },
+          {
+            "tag": "academic_calendar",
+            "patterns": [
+              "When does the semester start?",
+              "Academic schedule",
+              "Important dates",
+              "Term dates",
+              "When is registration?"
+            ],
+            "responses": [
+              "Fall semester begins August 28. Key dates: Orientation (Aug 25-27), Add/Drop ends Sept 5.",
+              "Our academic calendar shows: Spring term (Jan 15-May 5), Summer (June 1-July 30). Need a PDF copy?",
+              "Registration opens April 1 for fall, November 1 for spring. Current students get priority windows."
+            ]
+          },
+          {
+            "tag": "faculty_contact",
+            "patterns": [
+              "How to contact a professor?",
+              "Department phone numbers",
+              "Faculty directory",
+              "Email for admissions office",
+              "Who teaches [subject]?"
+            ],
+            "responses": [
+              "You can search faculty contacts at our online directory: university.edu/directory. Need a specific department?",
+              "Admissions Office: 555-123-4567 (Mon-Fri 9AM-5PM). For faculty, may I know the department name?",
+              "Our staff directory includes office hours and emails. Shall I look up someone specific for you?"
+            ]
+          }
+        ]
+      }

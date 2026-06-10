@@ -1,0 +1,473 @@
+2026-05-31 20:00:45,681 - python-dotenv could not parse statement starting at line 29
+2026-05-31 20:00:45,682 - python-dotenv could not parse statement starting at line 30
+2026-05-31 20:00:45,682 - python-dotenv could not parse statement starting at line 31
+2026-05-31 20:00:45,682 - python-dotenv could not parse statement starting at line 36
+2026-05-31 20:00:45,682 - python-dotenv could not parse statement starting at line 37
+2026-05-31 20:00:45,682 - python-dotenv could not parse statement starting at line 42
+2026-05-31 20:00:45,682 - python-dotenv could not parse statement starting at line 43
+2026-05-31 20:00:45,683 - python-dotenv could not parse statement starting at line 48
+2026-05-31 20:00:45,683 - python-dotenv could not parse statement starting at line 53
+2026-05-31 20:00:45,683 - python-dotenv could not parse statement starting at line 58
+2026-05-31 20:00:45,683 - python-dotenv could not parse statement starting at line 59
+2026-05-31 20:00:45,683 - python-dotenv could not parse statement starting at line 64
+2026-05-31 20:01:08,042 - python-dotenv could not parse statement starting at line 29
+2026-05-31 20:01:08,043 - python-dotenv could not parse statement starting at line 30
+2026-05-31 20:01:08,043 - python-dotenv could not parse statement starting at line 31
+2026-05-31 20:01:08,043 - python-dotenv could not parse statement starting at line 36
+2026-05-31 20:01:08,044 - python-dotenv could not parse statement starting at line 37
+2026-05-31 20:01:08,044 - python-dotenv could not parse statement starting at line 42
+2026-05-31 20:01:08,044 - python-dotenv could not parse statement starting at line 43
+2026-05-31 20:01:08,044 - python-dotenv could not parse statement starting at line 48
+2026-05-31 20:01:08,044 - python-dotenv could not parse statement starting at line 53
+2026-05-31 20:01:08,045 - python-dotenv could not parse statement starting at line 58
+2026-05-31 20:01:08,045 - python-dotenv could not parse statement starting at line 59
+2026-05-31 20:01:08,045 - python-dotenv could not parse statement starting at line 64
+2026-05-31 20:01:08,483 - Connected!
+
+2026-05-31 20:01:08,483 - --------------------- Live Training (PPO) ----------------------------
+2026-05-31 20:06:54,530 - From C:\Users\bw675\AppData\Roaming\Python\Python312\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-31 20:15:01,218 - 
+Opp: 0.6242 | Dir: 0.7552 | Bias: 0.0 | Sentiment: -0.6521 | Action: SELL
+2026-05-31 20:15:01,466 - TRADE SELL | Lot: 8.07 | Result: 10009
+2026-05-31 20:30:02,951 - 
+Opp: 0.6245 | Dir: 0.8157 | Bias: 0.0 | Sentiment: -0.6521 | Action: SELL
+2026-05-31 20:30:03,168 - Position 56871314250 closed successfully | Lot: 8.07
+2026-05-31 20:45:03,045 - 
+Opp: 0.6914 | Dir: 0.7904 | Bias: 0.0 | Sentiment: -0.6521 | Action: HOLD
+2026-05-31 21:00:09,998 - 
+Opp: 0.5673 | Dir: 0.8402 | Bias: 0.0 | Sentiment: -0.6521 | Action: HOLD
+2026-05-31 21:15:01,094 - 
+Opp: 0.6917 | Dir: 0.8031 | Bias: 0.0 | Sentiment: -0.6521 | Action: BUY
+2026-05-31 21:15:01,274 - TRADE BUY | Lot: 8.07 | Result: 10009
+2026-05-31 21:30:01,479 - 
+Opp: 0.6378 | Dir: 0.8253 | Bias: 0.0 | Sentiment: -0.6521 | Action: BUY
+2026-05-31 21:30:01,668 - Position 56871873503 closed successfully | Lot: 8.07
+2026-05-31 21:45:01,387 - 
+Opp: 0.5373 | Dir: 0.7899 | Bias: 0.0 | Sentiment: -0.6521 | Action: SELL
+2026-05-31 22:00:01,015 - 
+Opp: 0.5601 | Dir: 0.8182 | Bias: 0.0 | Sentiment: -0.6521 | Action: BUY
+2026-05-31 22:15:01,322 - 
+Opp: 0.6307 | Dir: 0.7922 | Bias: 0.0 | Sentiment: -0.6521 | Action: HOLD
+2026-05-31 22:30:01,383 - 
+Opp: 0.6757 | Dir: 0.8184 | Bias: 0.0 | Sentiment: -0.6521 | Action: BUY
+2026-05-31 22:30:01,562 - TRADE BUY | Lot: 8.07 | Result: 10009
+2026-05-31 22:45:00,803 - 
+Opp: 0.6057 | Dir: 0.8105 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-05-31 22:45:00,985 - Position 56872596362 closed successfully | Lot: 8.07
+2026-05-31 23:00:01,160 - 
+Opp: 0.7148 | Dir: 0.7931 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-05-31 23:00:01,333 - TRADE SELL | Lot: 8.07 | Result: 10009
+2026-05-31 23:15:01,308 - 
+Opp: 0.5682 | Dir: 0.7515 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-05-31 23:15:01,481 - Position 56872925551 closed successfully | Lot: 8.07
+2026-05-31 23:30:01,964 - 
+Opp: 0.6189 | Dir: 0.7892 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-05-31 23:45:01,476 - 
+Opp: 0.6957 | Dir: 0.8228 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-05-31 23:45:01,683 - TRADE BUY | Lot: 8.07 | Result: 10009
+2026-06-01 00:00:01,409 - 
+Opp: 0.6035 | Dir: 0.7786 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 00:00:01,599 - Position 56873339516 closed successfully | Lot: 8.07
+2026-06-01 00:15:01,285 - 
+Opp: 0.5897 | Dir: 0.7490 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 00:30:00,655 - 
+Opp: 0.7033 | Dir: 0.7838 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 00:30:00,853 - TRADE BUY | Lot: 8.07 | Result: 10009
+2026-06-01 00:45:01,366 - 
+Opp: 0.7078 | Dir: 0.7982 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 00:45:01,547 - Position 56873867351 closed successfully | Lot: 8.07
+2026-06-01 01:00:01,617 - 
+Opp: 0.7147 | Dir: 0.8075 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 01:15:01,555 - 
+Opp: 0.6558 | Dir: 0.7682 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 01:30:01,325 - 
+Opp: 0.6044 | Dir: 0.7648 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 01:45:01,295 - 
+Opp: 0.7185 | Dir: 0.7267 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 02:00:01,255 - 
+Opp: 0.5241 | Dir: 0.7284 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 02:15:01,045 - 
+Opp: 0.5125 | Dir: 0.6635 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 02:30:01,256 - 
+Opp: 0.6374 | Dir: 0.7611 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 02:30:01,451 - TRADE SELL | Lot: 8.07 | Result: 10009
+2026-06-01 02:45:01,247 - 
+Opp: 0.5877 | Dir: 0.6981 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 02:45:01,420 - Position 56875770840 closed successfully | Lot: 8.07
+2026-06-01 03:00:01,799 - 
+Opp: 0.5805 | Dir: 0.6377 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 03:15:01,617 - 
+Opp: 0.5503 | Dir: 0.5862 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 03:30:01,516 - 
+Opp: 0.5483 | Dir: 0.6469 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 03:45:00,511 - 
+Opp: 0.5420 | Dir: 0.6571 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 04:00:00,972 - 
+Opp: 0.5717 | Dir: 0.6324 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 04:15:01,378 - 
+Opp: 0.5974 | Dir: 0.6736 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 04:30:00,682 - 
+Opp: 0.6013 | Dir: 0.6020 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 04:30:00,852 - TRADE SELL | Lot: 8.07 | Result: 10009
+2026-06-01 04:45:01,592 - 
+Opp: 0.5451 | Dir: 0.6355 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 04:45:01,772 - Position 56877756241 closed successfully | Lot: 8.07
+2026-06-01 05:00:00,945 - 
+Opp: 0.6141 | Dir: 0.6401 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 05:00:01,115 - TRADE BUY | Lot: 8.07 | Result: 10009
+2026-06-01 05:15:01,468 - 
+Opp: 0.5330 | Dir: 0.6717 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 05:15:01,633 - Position 56878233418 closed successfully | Lot: 8.07
+2026-06-01 05:30:01,391 - 
+Opp: 0.6406 | Dir: 0.6358 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 05:45:00,711 - 
+Opp: 0.5353 | Dir: 0.5851 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 06:00:01,454 - 
+Opp: 0.6025 | Dir: 0.6567 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 06:15:01,805 - 
+Opp: 0.6077 | Dir: 0.6088 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 06:30:06,228 - 
+Opp: 0.6103 | Dir: 0.5623 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 12:48:54,202 - python-dotenv could not parse statement starting at line 29
+2026-06-01 12:48:54,204 - python-dotenv could not parse statement starting at line 30
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 31
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 36
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 37
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 42
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 43
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 48
+2026-06-01 12:48:54,205 - python-dotenv could not parse statement starting at line 53
+2026-06-01 12:48:54,206 - python-dotenv could not parse statement starting at line 58
+2026-06-01 12:48:54,206 - python-dotenv could not parse statement starting at line 59
+2026-06-01 12:48:54,206 - python-dotenv could not parse statement starting at line 64
+2026-06-01 12:49:15,978 - python-dotenv could not parse statement starting at line 29
+2026-06-01 12:49:15,978 - python-dotenv could not parse statement starting at line 30
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 31
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 36
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 37
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 42
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 43
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 48
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 53
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 58
+2026-06-01 12:49:15,979 - python-dotenv could not parse statement starting at line 59
+2026-06-01 12:49:15,980 - python-dotenv could not parse statement starting at line 64
+2026-06-01 12:49:18,025 - Connected!
+
+2026-06-01 12:49:18,025 - --------------------- Live Training (PPO) ----------------------------
+2026-06-01 13:00:01,533 - 
+Opp: 0.6713 | Dir: 0.8246 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 13:15:01,184 - 
+Opp: 0.6968 | Dir: 0.7946 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 13:15:01,422 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 13:30:01,547 - 
+Opp: 0.6816 | Dir: 0.8111 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 13:30:01,725 - Position 56888134598 closed successfully | Lot: 8.05
+2026-06-01 13:45:01,282 - 
+Opp: 0.7052 | Dir: 0.8402 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 13:45:01,463 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 14:00:02,341 - 
+Opp: 0.6612 | Dir: 0.8266 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 14:00:02,608 - Position 56888423046 closed successfully | Lot: 8.05
+2026-06-01 14:15:01,474 - 
+Opp: 0.5680 | Dir: 0.8040 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 14:30:01,815 - 
+Opp: 0.6753 | Dir: 0.8646 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 14:30:02,025 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 14:45:01,852 - 
+Opp: 0.6270 | Dir: 0.8760 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 14:45:02,061 - Position 56888778952 closed successfully | Lot: 8.05
+2026-06-01 15:00:01,486 - 
+Opp: 0.6450 | Dir: 0.8967 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 15:15:01,550 - 
+Opp: 0.5743 | Dir: 0.8265 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 15:30:01,279 - 
+Opp: 0.6910 | Dir: 0.8408 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 15:30:01,483 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 15:45:01,459 - 
+Opp: 0.5514 | Dir: 0.8028 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 15:45:01,657 - Position 56889075043 closed successfully | Lot: 8.05
+2026-06-01 16:00:00,614 - 
+Opp: 0.6511 | Dir: 0.7747 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 16:00:00,819 - TRADE BUY | Lot: 8.05 | Result: 10018
+2026-06-01 16:15:00,565 - 
+Opp: 0.5580 | Dir: 0.8200 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 16:30:00,970 - 
+Opp: 0.6593 | Dir: 0.7992 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 16:30:01,173 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-01 16:45:00,418 - 
+Opp: 0.5540 | Dir: 0.7567 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 16:45:00,614 - Position 56889159231 closed successfully | Lot: 8.05
+2026-06-01 17:00:01,365 - 
+Opp: 0.6673 | Dir: 0.7645 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 17:00:04,288 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 17:15:00,759 - 
+Opp: 0.6312 | Dir: 0.8191 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 17:15:01,014 - Position 56889210765 closed successfully | Lot: 8.05
+2026-06-01 17:30:01,715 - 
+Opp: 0.6386 | Dir: 0.8007 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 17:30:02,007 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-01 17:45:00,961 - 
+Opp: 0.6309 | Dir: 0.8012 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 17:45:01,172 - Position 56889343208 closed successfully | Lot: 8.05
+2026-06-01 18:00:01,594 - 
+Opp: 0.7728 | Dir: 0.7919 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 18:00:01,781 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 18:15:01,228 - 
+Opp: 0.6386 | Dir: 0.7926 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 18:15:01,416 - Position 56889472364 closed successfully | Lot: 8.05
+2026-06-01 18:30:01,173 - 
+Opp: 0.7397 | Dir: 0.7805 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 18:30:01,359 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-01 18:45:03,424 - 
+Opp: 0.6428 | Dir: 0.7631 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 18:45:03,710 - Position 56889600126 closed successfully | Lot: 8.05
+2026-06-01 18:45:03,712 - 
+                        ================ PERFORMANCE ================
+                        Model Accuracy:  0.500
+                        Trade Accuracy:  0.200
+                        Avg Win:         76.47500
+                        Avg Loss:        -115.71875
+                        Win/Loss Ratio:  0.661
+                        Sharpe Ratio:    -2.119
+                        Total Return:    -772.80000
+                        Hold Count:      3
+                        ============================================
+                        
+2026-06-01 19:00:01,524 - 
+Opp: 0.6542 | Dir: 0.7949 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 19:15:01,313 - 
+Opp: 0.6469 | Dir: 0.7616 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 19:30:01,068 - 
+Opp: 0.6653 | Dir: 0.7711 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 19:30:01,327 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 19:45:00,926 - 
+Opp: 0.6674 | Dir: 0.8206 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 19:45:01,224 - Position 56890024492 closed successfully | Lot: 8.05
+2026-06-01 20:00:01,355 - 
+Opp: 0.6563 | Dir: 0.7700 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 20:00:01,620 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-01 20:15:01,023 - 
+Opp: 0.6251 | Dir: 0.7472 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 20:15:01,226 - Position 56890266843 closed successfully | Lot: 8.05
+2026-06-01 20:30:02,121 - 
+Opp: 0.5947 | Dir: 0.8248 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 20:45:01,271 - 
+Opp: 0.5932 | Dir: 0.6805 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 21:00:01,755 - 
+Opp: 0.6476 | Dir: 0.8106 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 21:15:01,774 - 
+Opp: 0.5286 | Dir: 0.7325 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 21:30:02,050 - 
+Opp: 0.5958 | Dir: 0.7206 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 21:45:01,427 - 
+Opp: 0.7368 | Dir: 0.7341 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 21:45:01,755 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-01 22:00:02,201 - 
+Opp: 0.6555 | Dir: 0.7174 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 22:00:02,400 - Position 56891301126 closed successfully | Lot: 8.05
+2026-06-01 22:15:01,624 - 
+Opp: 0.5481 | Dir: 0.7528 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 22:30:01,416 - 
+Opp: 0.6383 | Dir: 0.7478 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 22:30:01,644 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-01 22:45:01,491 - 
+Opp: 0.5268 | Dir: 0.5948 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 22:45:01,721 - Position 56891709144 closed successfully | Lot: 8.05
+2026-06-01 23:00:01,523 - 
+Opp: 0.5805 | Dir: 0.6895 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 23:15:01,565 - 
+Opp: 0.6496 | Dir: 0.6695 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-01 23:30:01,962 - 
+Opp: 0.6490 | Dir: 0.5749 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-01 23:30:02,156 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-01 23:45:01,079 - 
+Opp: 0.6169 | Dir: 0.6553 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-01 23:45:01,299 - Position 56892298933 closed successfully | Lot: 8.05
+2026-06-02 00:00:00,668 - 
+Opp: 0.6500 | Dir: 0.6428 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 00:00:00,863 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 00:15:01,535 - 
+Opp: 0.4931 | Dir: 0.6493 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 00:15:01,723 - Position 56892655273 closed successfully | Lot: 8.05
+2026-06-02 00:30:00,931 - 
+Opp: 0.5829 | Dir: 0.6355 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 00:45:00,543 - 
+Opp: 0.6059 | Dir: 0.6323 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 00:45:00,738 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-02 01:00:01,712 - 
+Opp: 0.5324 | Dir: 0.5959 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 01:00:01,910 - Position 56893265523 closed successfully | Lot: 8.05
+2026-06-02 01:15:01,093 - 
+Opp: 0.6518 | Dir: 0.5838 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 01:30:01,428 - 
+Opp: 0.6688 | Dir: 0.6133 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 01:45:01,672 - 
+Opp: 0.6067 | Dir: 0.6253 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 02:00:01,738 - 
+Opp: 0.6014 | Dir: 0.6410 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 02:00:01,929 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 02:15:01,631 - 
+Opp: 0.6202 | Dir: 0.6227 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 02:15:01,823 - Position 56894389697 closed successfully | Lot: 8.05
+2026-06-02 02:30:01,498 - 
+Opp: 0.6332 | Dir: 0.5685 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 02:45:00,455 - 
+Opp: 0.5615 | Dir: 0.4824 | Bias: 0.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 03:00:00,599 - 
+Opp: 0.6208 | Dir: 0.5553 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 03:00:00,782 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 03:15:00,558 - 
+Opp: 0.5635 | Dir: 0.5381 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 03:15:00,744 - Position 56895253572 closed successfully | Lot: 8.05
+2026-06-02 03:30:01,329 - 
+Opp: 0.5606 | Dir: 0.5809 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 03:45:00,586 - 
+Opp: 0.5528 | Dir: 0.5795 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 04:00:00,615 - 
+Opp: 0.6357 | Dir: 0.5386 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 04:00:00,800 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-02 04:15:01,539 - 
+Opp: 0.6064 | Dir: 0.5557 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 04:15:01,717 - Position 56896055538 closed successfully | Lot: 8.05
+2026-06-02 04:15:01,719 - 
+                        ================ PERFORMANCE ================
+                        Model Accuracy:  0.500
+                        Trade Accuracy:  0.250
+                        Avg Win:         202.86000
+                        Avg Loss:        -108.40667
+                        Win/Loss Ratio:  1.871
+                        Sharpe Ratio:    -0.849
+                        Total Return:    -611.80000
+                        Hold Count:      16
+                        ============================================
+                        
+2026-06-02 04:30:00,648 - 
+Opp: 0.5249 | Dir: 0.5904 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 04:45:01,377 - 
+Opp: 0.6369 | Dir: 0.5412 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 05:00:01,338 - 
+Opp: 0.6625 | Dir: 0.5776 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 05:15:00,929 - 
+Opp: 0.6909 | Dir: 0.5745 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 05:30:00,750 - 
+Opp: 0.6131 | Dir: 0.4999 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 05:30:00,938 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 05:45:00,455 - 
+Opp: 0.6798 | Dir: 0.5461 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 05:45:00,631 - Position 56897324923 closed successfully | Lot: 8.05
+2026-06-02 06:00:02,360 - 
+Opp: 0.6785 | Dir: 0.6051 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 06:00:02,545 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-02 06:15:00,557 - 
+Opp: 0.6351 | Dir: 0.5119 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 06:15:01,008 - Position 56897677929 closed successfully | Lot: 8.05
+2026-06-02 06:30:00,882 - 
+Opp: 0.7070 | Dir: 0.6009 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 06:30:01,132 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 06:45:02,404 - 
+Opp: 0.6330 | Dir: 0.6118 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 06:45:02,657 - Position 56898054999 closed successfully | Lot: 8.05
+2026-06-02 07:00:00,979 - 
+Opp: 0.6871 | Dir: 0.5824 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 07:00:01,423 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-02 07:15:00,807 - 
+Opp: 0.5881 | Dir: 0.4985 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 07:15:01,069 - Position 56898455145 closed successfully | Lot: 8.05
+2026-06-02 07:30:01,174 - 
+Opp: 0.6136 | Dir: 0.4796 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 07:45:01,036 - 
+Opp: 0.6382 | Dir: 0.5199 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 08:00:02,567 - 
+Opp: 0.6679 | Dir: 0.5064 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 08:15:01,672 - 
+Opp: 0.6142 | Dir: 0.5574 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 08:15:01,878 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 08:30:02,256 - 
+Opp: 0.6199 | Dir: 0.5442 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 08:30:02,448 - Position 56900019372 closed successfully | Lot: 8.05
+2026-06-02 08:45:01,407 - 
+Opp: 0.6081 | Dir: 0.4780 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 08:45:01,696 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 09:00:00,900 - 
+Opp: 0.6288 | Dir: 0.5002 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 09:00:01,090 - Position 56900693843 closed successfully | Lot: 8.05
+2026-06-02 09:15:02,051 - 
+Opp: 0.6283 | Dir: 0.5113 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 09:30:00,853 - 
+Opp: 0.6875 | Dir: 0.4232 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 09:45:00,897 - 
+Opp: 0.6790 | Dir: 0.4223 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 09:45:01,175 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 10:00:01,178 - 
+Opp: 0.5471 | Dir: 0.5271 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 10:00:01,383 - Position 56902152759 closed successfully | Lot: 8.05
+2026-06-02 10:15:01,216 - 
+Opp: 0.7104 | Dir: 0.4508 | Bias: 1.0 | Sentiment: 0.0000 | Action: BUY
+2026-06-02 10:15:01,403 - TRADE BUY | Lot: 8.05 | Result: 10009
+2026-06-02 10:30:00,833 - 
+Opp: 0.6144 | Dir: 0.4865 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 10:30:01,072 - Position 56902697792 closed successfully | Lot: 8.05
+2026-06-02 10:45:00,781 - 
+Opp: 0.6991 | Dir: 0.4989 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 11:00:01,414 - 
+Opp: 0.6430 | Dir: 0.4420 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 11:00:01,675 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 11:15:00,749 - 
+Opp: 0.6803 | Dir: 0.5534 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 11:15:00,959 - Position 56903371465 closed successfully | Lot: 8.05
+2026-06-02 11:30:01,336 - 
+Opp: 0.6058 | Dir: 0.4698 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 11:45:00,980 - 
+Opp: 0.6581 | Dir: 0.3922 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 11:45:01,154 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 12:00:00,429 - 
+Opp: 0.5776 | Dir: 0.4733 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 12:00:00,602 - Position 56904158429 closed successfully | Lot: 8.05
+2026-06-02 12:00:00,604 - 
+                        ================ PERFORMANCE ================
+                        Model Accuracy:  0.467
+                        Trade Accuracy:  0.333
+                        Avg Win:         178.71000
+                        Avg Loss:        -125.98250
+                        Win/Loss Ratio:  1.419
+                        Sharpe Ratio:    -0.762
+                        Total Return:    -732.55000
+                        Hold Count:      26
+                        ============================================
+                        
+2026-06-02 12:15:01,305 - 
+Opp: 0.6296 | Dir: 0.5374 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 12:15:01,499 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 12:30:00,660 - 
+Opp: 0.6430 | Dir: 0.5135 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 12:30:00,837 - Position 56904553282 closed successfully | Lot: 8.05
+2026-06-02 12:45:00,403 - 
+Opp: 0.6415 | Dir: 0.4837 | Bias: 0.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 12:45:00,580 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 13:00:01,400 - 
+Opp: 0.6364 | Dir: 0.4580 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 13:00:01,590 - Position 56904980046 closed successfully | Lot: 8.05
+2026-06-02 13:15:01,072 - 
+Opp: 0.6344 | Dir: 0.5940 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 13:15:01,337 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 13:30:00,774 - 
+Opp: 0.6609 | Dir: 0.5538 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 13:30:01,013 - Position 56905331247 closed successfully | Lot: 8.05
+2026-06-02 13:45:01,580 - 
+Opp: 0.6285 | Dir: 0.5310 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 13:45:01,770 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 14:00:02,506 - 
+Opp: 0.6789 | Dir: 0.5442 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 14:00:02,705 - Position 56905721902 closed successfully | Lot: 8.05
+2026-06-02 14:15:01,914 - 
+Opp: 0.6700 | Dir: 0.5494 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
+2026-06-02 14:15:02,243 - TRADE SELL | Lot: 8.05 | Result: 10009
+2026-06-02 14:30:01,996 - 
+Opp: 0.6596 | Dir: 0.6337 | Bias: 1.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 14:30:02,213 - Position 56906043863 closed successfully | Lot: 8.05
+2026-06-02 14:45:02,361 - 
+Opp: 0.6637 | Dir: 0.5857 | Bias: 0.0 | Sentiment: 0.0000 | Action: HOLD
+2026-06-02 15:00:01,309 - 
+Opp: 0.5930 | Dir: 0.5603 | Bias: 1.0 | Sentiment: 0.0000 | Action: SELL
