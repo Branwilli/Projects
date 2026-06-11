@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CortexFX Trading Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #080c14; color: #e8eaf0; font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    @keyframes fadeSlide { from{opacity:0;transform:translateX(-8px);} to{opacity:1;transform:translateX(0);} }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #080c14; }
+    ::-webkit-scrollbar-thumb { background: #1e2d40; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useCallback, useRef } = React;
+
+    const API   = "http://localhost:5050/api";
+    const PAIRS = ["EURUSD", "GBPUSD", "USDCAD", "AUDUSD"];
+
+    const PAIR_COLORS = {
+      EURUSD: { accent: "#00e5b0", glow: "rgba(0,229,176,0.18)" },
+      GBPUSD: { accent: "#4d9fff", glow: "rgba(77,159,255,0.18)" },
+      USDCAD: { accent: "#f59e0b", glow: "rgba(245,158,11,0.18)" },
+      AUDUSD: { accent: "#e879f9", glow: "rgba(232,121,249,0.18)" },
+    };
+
+    const EMPTY_PAIR   = { pnl:0, activeTrade:null, trades:[], metrics:{}, holdCount:0 };
+    const EMPTY_TOTALS = { totalPnl:0, totalTrades:0, wins:0, losses:0, winRate:0, activePairs:0 };
+
+    // ── Trade row ──────────────────────────────────────────────────────────────
+    function TradeRow({ trade }) {
+      const isBuy = trade.type === "BUY";
+      const isOk  = trade.status === "success" || trade.status === "open";
+      const price = trade.price || trade.entryPrice || 0;
+      return (
+        <div style={{
+          display:"flex", alignItems:"center", gap:10,
+          padding:"9px 0", borderBottom:"1px solid rgba(255,255,255,0.05)",
+        }}>
+          <span style={{
+            fontSize:10, fontWeight:700, letterSpacing:1, padding:"3px 8px",
+            borderRadius:4, minWidth:36, textAlign:"center",
+            background: isBuy ? "rgba(0,229,176,0.15)" : "rgba(255,80,100,0.15)",
+            color:       isBuy ? "#00e5b0" : "#ff6480",
+            border:`1px solid ${isBuy ? "rgba(0,229,176,0.3)" : "rgba(255,80,100,0.3)"}`,
+          }}>{trade.type}</span>
+
+          <span style={{ fontSize:12, color:"#c8d0e0", flex:1 }}>
+            {trade.lots} lot
+            {price > 0 && <span> @ <span style={{ color:"#e8eaf0", fontVariantNumeric:"tabular-nums" }}>{price.toFixed(5)}</span></span>}
+          </span>
+
+          <span style={{ fontSize:11, color: isOk ? "#00e5b0" : "#ff6480" }}>
+            {isOk ? "✓" : "✗"} {trade.status}
+          </span>
+
+          {trade.pnl !== undefined && (
+            <span style={{ fontSize:11, fontFamily:"'IBM Plex Mono',monospace", color: trade.pnl >= 0 ? "#00e5b0" : "#ff6480" }}>
+              {trade.pnl >= 0 ? "+" : ""}${trade.pnl.toFixed(2)}
+            </span>
+          )}
+
+          <span style={{ fontSize:11, color:"#6b7a99", minWidth:64, textAlign:"right" }}>{trade.time}</span>
+        </div>
+      );
+    }
+
+    // ── Pair card ──────────────────────────────────────────────────────────────
+    function PairCard({ symbol, data }) {
+      const { accent, glow } = PAIR_COLORS[symbol];
+      const pnlPos = (data.pnl ?? 0) >= 0;
+      const [hovered, setHovered] = useState(false);
+      const trades = (data.trades ?? []).slice().reverse().slice(0, 5);
+
+      return (
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          style={{
+            background:"linear-gradient(160deg,#0f1521 0%,#0c1018 100%)",
+            border:`1px solid ${accent}28`, borderRadius:16, padding:"22px 20px",
+            flex:"1 1 220px", minWidth:220,
+            boxShadow: hovered ? `0 0 48px ${glow},0 8px 32px rgba(0,0,0,0.5)` : `0 0 32px ${glow},0 4px 24px rgba(0,0,0,0.4)`,
+            transform: hovered ? "translateY(-3px)" : "translateY(0)",
+            position:"relative", overflow:"hidden",
+            transition:"transform 0.2s, box-shadow 0.2s",
+          }}>
+
+          <div style={{ position:"absolute",top:0,left:0,right:0,height:2,
+            background:`linear-gradient(90deg,transparent,${accent},transparent)` }} />
+
+          <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14 }}>
+            <span style={{ fontFamily:"'IBM Plex Mono',monospace",fontSize:13,fontWeight:700,letterSpacing:2,color:accent }}>
+              {symbol.slice(0,3)}<span style={{ opacity:0.55 }}>/</span>{symbol.slice(3)}
+            </span>
+            <span style={{
+              fontSize:10,padding:"2px 8px",borderRadius:20,letterSpacing:1,fontWeight:600,
+              background: data.activeTrade ? "rgba(0,229,176,0.1)" : "rgba(255,255,255,0.05)",
+              color:       data.activeTrade ? "#00e5b0" : "#4a5568",
+              border:`1px solid ${data.activeTrade ? "rgba(0,229,176,0.2)" : "rgba(255,255,255,0.08)"}`,
+            }}>{data.activeTrade ? "● LIVE" : "○ IDLE"}</span>
+          </div>
+
+          <div style={{
+            fontSize:28,fontWeight:800,fontFamily:"'IBM Plex Mono',monospace",letterSpacing:-1,marginBottom:18,
+            color: pnlPos ? "#00e5b0" : "#ff6480",
+            textShadow:`0 0 20px ${pnlPos ? "rgba(0,229,176,0.4)" : "rgba(255,100,128,0.4)"}`,
+          }}>
+            {pnlPos ? "+" : ""}${Math.abs(data.pnl ?? 0).toFixed(2)}
+          </div>
+
+          {data.metrics && Object.keys(data.metrics).length > 0 && (
+            <div style={{ display:"flex",gap:8,marginBottom:14,flexWrap:"wrap" }}>
+              {data.metrics["Trade Accuracy"] != null && (
+                <span style={{
+                  fontSize:10,padding:"2px 8px",borderRadius:4,
+                  background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",
+                  color: data.metrics["Trade Accuracy"] >= 0.5 ? "#00e5b0" : "#ff6480",
+                }}>ACC {(data.metrics["Trade Accuracy"]*100).toFixed(0)}%</span>
+              )}
+              {data.metrics["Sharpe Ratio"] != null && (
+                <span style={{
+                  fontSize:10,padding:"2px 8px",borderRadius:4,
+                  background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",
+                  color: data.metrics["Sharpe Ratio"] >= 0 ? "#4d9fff" : "#ff6480",
+                }}>SR {(data.metrics["Sharpe Ratio"] ?? 0).toFixed(2)}</span>
+              )}
+              {data.holdCount > 0 && (
+                <span style={{
+                  fontSize:10,padding:"2px 8px",borderRadius:4,
+                  background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",color:"#6b7a99",
+                }}>HOLD ×{data.holdCount}</span>
+              )}
+            </div>
+          )}
+
+          <div style={{ marginBottom:12 }}>
+            <div style={{ fontSize:10,letterSpacing:2,color:"#4a5568",marginBottom:7,fontWeight:700 }}>OPEN POSITION</div>
+            {data.activeTrade
+              ? <TradeRow trade={data.activeTrade} />
+              : <div style={{ fontSize:12,color:"#2d3748",padding:"9px 0",borderBottom:"1px solid rgba(255,255,255,0.05)" }}>No active trades</div>
+            }
+          </div>
+
+          <div>
+            <div style={{ fontSize:10,letterSpacing:2,color:"#4a5568",marginBottom:7,fontWeight:700 }}>CLOSED</div>
+            {trades.length === 0
+              ? <div style={{ fontSize:12,color:"#2d3748" }}>No closed trades</div>
+              : trades.map((t,i) => <TradeRow key={i} trade={t} />)
+            }
+          </div>
+        </div>
+      );
+    }
+
+    // ── Stat pill ──────────────────────────────────────────────────────────────
+    function StatPill({ label, value, color, sub }) {
+      return (
+        <div style={{
+          background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.08)",
+          borderRadius:12,padding:"14px 22px",flex:"1 1 160px",
+          display:"flex",flexDirection:"column",gap:4,
+        }}>
+          <span style={{ fontSize:11,letterSpacing:2,color:"#4a5568",fontWeight:700 }}>{label}</span>
+          <span style={{ fontSize:22,fontWeight:800,fontFamily:"'IBM Plex Mono',monospace",color:color||"#e8eaf0" }}>{value}</span>
+          {sub && <span style={{ fontSize:11,color:"#4a5568" }}>{sub}</span>}
+        </div>
+      );
+    }
+
+    // ── Bot control button ─────────────────────────────────────────────────────
+    function BotControl({ status, onStart, onStop, loading }) {
+      const isRunning = status === "RUNNING";
+      return (
+        <button
+          onClick={isRunning ? onStop : onStart}
+          disabled={loading}
+          style={{
+            padding:"8px 22px",borderRadius:20,cursor:loading?"not-allowed":"pointer",
+            fontWeight:700,fontSize:12,letterSpacing:1,fontFamily:"'DM Sans',sans-serif",
+            background: loading ? "rgba(255,255,255,0.05)"
+              : isRunning ? "rgba(255,100,128,0.15)" : "rgba(0,229,176,0.15)",
+            color: loading ? "#4a5568" : isRunning ? "#ff6480" : "#00e5b0",
+            border:`1px solid ${loading ? "rgba(255,255,255,0.08)" : isRunning ? "rgba(255,100,128,0.3)" : "rgba(0,229,176,0.3)"}`,
+            transition:"all 0.2s",
+          }}>
+          {loading ? "..." : isRunning ? "⏹ STOP BOT" : "▶ START BOT"}
+        </button>
+      );
+    }
+
+    // ── Log panel ──────────────────────────────────────────────────────────────
+    function LogPanel({ logs, visible, onClose }) {
+      const bottomRef = useRef(null);
+      useEffect(() => {
+        if (visible && bottomRef.current) bottomRef.current.scrollIntoView({ behavior:"smooth" });
+      }, [logs, visible]);
+
+      if (!visible) return null;
+      return (
+        <div style={{
+          position:"fixed",bottom:0,left:0,right:0,height:280,zIndex:100,
+          background:"rgba(6,9,15,0.97)",backdropFilter:"blur(12px)",
+          borderTop:"1px solid rgba(255,255,255,0.08)",
+          display:"flex",flexDirection:"column",
+        }}>
+          <div style={{
+            display:"flex",justifyContent:"space-between",alignItems:"center",
+            padding:"8px 24px",borderBottom:"1px solid rgba(255,255,255,0.06)",
+            fontSize:11,letterSpacing:2,color:"#4a5568",fontWeight:700,
+          }}>
+            <span>BOT LOGS</span>
+            <button onClick={onClose} style={{ background:"none",border:"none",color:"#4a5568",cursor:"pointer",fontSize:16 }}>✕</button>
+          </div>
+          <div style={{ flex:1,overflowY:"auto",padding:"10px 24px",fontFamily:"'IBM Plex Mono',monospace",fontSize:11 }}>
+            {logs.length === 0
+              ? <span style={{ color:"#2d3748" }}>No logs yet. Start the bot to see output.</span>
+              : logs.map((line,i) => (
+                  <div key={i} style={{
+                    lineHeight:1.8, whiteSpace:"pre-wrap", wordBreak:"break-all",
+                    color: line.includes("ERROR") || line.includes("Traceback") ? "#ff6480"
+                         : line.includes("PnL") || line.includes("Reward") ? "#00e5b0"
+                         : line.includes("Placing") || line.includes("TRADE") ? "#f59e0b"
+                         : "#6b7a99",
+                  }}>{line}</div>
+                ))
+            }
+            <div ref={bottomRef} />
+          </div>
+        </div>
+      );
+    }
+
+    // ── Main dashboard ─────────────────────────────────────────────────────────
+    function Dashboard() {
+      const [pairData,   setPairData]   = useState(Object.fromEntries(PAIRS.map(p=>[p,{...EMPTY_PAIR}])));
+      const [totals,     setTotals]     = useState({...EMPTY_TOTALS});
+      const [botStatus,  setBotStatus]  = useState("STOPPED");
+      const [apiOnline,  setApiOnline]  = useState(false);
+      const [loading,    setLoading]    = useState(false);
+      const [lastUpdate, setLastUpdate] = useState(null);
+      const [now,        setNow]        = useState(new Date());
+      const [logs,       setLogs]       = useState([]);
+      const [showLogs,   setShowLogs]   = useState(false);
+
+      // Clock
+      useEffect(() => {
+        const t = setInterval(() => setNow(new Date()), 1000);
+        return () => clearInterval(t);
+      }, []);
+
+      // Poll dashboard
+      const fetchDashboard = useCallback(async () => {
+        try {
+          const res = await fetch(`${API}/dashboard`);
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          const newPairs = {};
+          for (const sym of PAIRS) newPairs[sym] = data.pairs?.[sym] ?? {...EMPTY_PAIR};
+          setPairData(newPairs);
+          setTotals(data.totals ?? {...EMPTY_TOTALS});
+          setBotStatus(data.bot_status ?? "STOPPED");
+          setApiOnline(true);
+          setLastUpdate(new Date());
+        } catch { setApiOnline(false); }
+      }, []);
+
+      // Poll logs
+      const fetchLogs = useCallback(async () => {
+        try {
+          const res = await fetch(`${API}/bot/logs?lines=200`);
+          if (!res.ok) return;
+          const data = await res.json();
+          setLogs(data.logs ?? []);
+        } catch {}
+      }, []);
+
+      useEffect(() => {
+        fetchDashboard();
+        const t1 = setInterval(fetchDashboard, 10000);
+        const t2 = setInterval(fetchLogs, 5000);
+        return () => { clearInterval(t1); clearInterval(t2); };
+      }, [fetchDashboard, fetchLogs]);
+
+      const handleStart = async () => {
+        setLoading(true);
+        try {
+          const res  = await fetch(`${API}/bot/start`, { method:"POST" });
+          const data = await res.json();
+          if (data.ok) { setBotStatus("RUNNING"); setShowLogs(true); }
+          else alert("Failed to start: " + data.error);
+        } catch (e) { alert("API error: " + e.message); }
+        finally { setLoading(false); }
+      };
+
+      const handleStop = async () => {
+        setLoading(true);
+        try {
+          const res  = await fetch(`${API}/bot/stop`, { method:"POST" });
+          const data = await res.json();
+          if (data.ok) setBotStatus("STOPPED");
+          else alert("Failed to stop: " + data.error);
+        } catch (e) { alert("API error: " + e.message); }
+        finally { setLoading(false); }
+      };
+
+      const isRunning = botStatus === "RUNNING";
+
+      return (
+        <div style={{ minHeight:"100vh", background:"#080c14", color:"#e8eaf0", fontFamily:"'DM Sans',sans-serif", paddingBottom: showLogs ? 300 : 40 }}>
+
+          {/* Scanlines */}
+          <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0,
+            background:"repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px)" }} />
+
+          {/* Header */}
+          <div style={{
+            borderBottom:"1px solid rgba(255,255,255,0.06)",padding:"0 32px",
+            position:"sticky",top:0,zIndex:10,
+            background:"rgba(8,12,20,0.95)",backdropFilter:"blur(12px)",
+          }}>
+            <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",height:64 }}>
+
+              {/* Logo */}
+              <div style={{ display:"flex",alignItems:"center",gap:14 }}>
+                <div style={{ width:32,height:32,borderRadius:8,fontSize:14,fontWeight:800,
+                  background:"linear-gradient(135deg,#00e5b0,#4d9fff)",
+                  display:"flex",alignItems:"center",justifyContent:"center" }}>⬡</div>
+                <div>
+                  <div style={{ fontSize:13,fontWeight:700,letterSpacing:3 }}>
+                    CORTEX<span style={{ color:"#00e5b0" }}>FX</span>
+                  </div>
+                  <div style={{ fontSize:10,color:"#4a5568",letterSpacing:2 }}>TRADING DASHBOARD</div>
+                </div>
+              </div>
+
+              {/* Ticker */}
+              <div style={{ display:"flex",gap:20,alignItems:"center" }}>
+                {PAIRS.map(sym => {
+                  const pnl = pairData[sym]?.pnl ?? 0;
+                  const { accent } = PAIR_COLORS[sym];
+                  return (
+                    <span key={sym} style={{ fontSize:12,fontFamily:"'IBM Plex Mono',monospace",color:"#6b7a99",whiteSpace:"nowrap" }}>
+                      <span style={{ color:accent }}>{sym}</span>{" "}
+                      <span style={{ color: pnl>=0 ? "#00e5b0" : "#ff6480" }}>{pnl>=0?"+":""}${pnl.toFixed(2)}</span>
+                    </span>
+                  );
+                })}
+              </div>
+
+              {/* Right controls */}
+              <div style={{ display:"flex",alignItems:"center",gap:12 }}>
+                <button
+                  onClick={() => setShowLogs(v => !v)}
+                  style={{
+                    background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",
+                    borderRadius:20,padding:"6px 14px",color:"#6b7a99",fontSize:11,
+                    cursor:"pointer",letterSpacing:1,fontWeight:600,fontFamily:"'DM Sans',sans-serif",
+                  }}>
+                  {showLogs ? "HIDE LOGS" : "SHOW LOGS"}
+                  {logs.length > 0 && <span style={{ marginLeft:6,color:"#4d9fff" }}>{logs.length}</span>}
+                </button>
+
+                <BotControl status={botStatus} onStart={handleStart} onStop={handleStop} loading={loading} />
+
+                <div style={{
+                  display:"flex",alignItems:"center",gap:7,padding:"6px 14px",borderRadius:20,
+                  background: isRunning ? "rgba(0,229,176,0.08)" : "rgba(255,255,255,0.04)",
+                  border:`1px solid ${isRunning ? "rgba(0,229,176,0.2)" : "rgba(255,255,255,0.08)"}`,
+                }}>
+                  <div style={{
+                    width:7,height:7,borderRadius:"50%",
+                    background: apiOnline ? (isRunning ? "#00e5b0" : "#6b7a99") : "#ff6480",
+                    animation: isRunning ? "pulse 2s ease infinite" : "none",
+                    boxShadow: isRunning ? "0 0 8px rgba(0,229,176,0.8)" : "none",
+                  }} />
+                  <span style={{ fontSize:11,fontWeight:700,letterSpacing:1,
+                    color: apiOnline ? (isRunning ? "#00e5b0" : "#6b7a99") : "#ff6480" }}>
+                    {!apiOnline ? "OFFLINE" : isRunning ? "RUNNING" : "STOPPED"}
+                  </span>
+                </div>
+
+                <div style={{ textAlign:"right" }}>
+                  <div style={{ fontSize:10,color:"#4a5568",letterSpacing:2 }}>LOCAL TIME</div>
+                  <div style={{ fontSize:12,fontFamily:"'IBM Plex Mono',monospace",color:"#c8d0e0" }}>
+                    {now.toTimeString().slice(0,8)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Body */}
+          <div style={{ padding:"28px 32px 0",position:"relative",zIndex:1 }}>
+
+            {!apiOnline && (
+              <div style={{
+                marginBottom:20,padding:"12px 20px",borderRadius:10,
+                background:"rgba(255,100,128,0.08)",border:"1px solid rgba(255,100,128,0.2)",
+                fontSize:13,color:"#ff6480",
+              }}>
+                ⚠ Cannot reach API at <code style={{ fontFamily:"'IBM Plex Mono',monospace" }}>{API}</code> — run <code style={{ fontFamily:"'IBM Plex Mono',monospace" }}>python api.py</code> first.
+              </div>
+            )}
+
+            {/* Stats row */}
+            <div style={{ display:"flex",gap:12,marginBottom:28,flexWrap:"wrap" }}>
+              <StatPill label="TOTAL P&L"
+                value={(totals.totalPnl>=0?"+":"") + "$" + Math.abs(totals.totalPnl).toFixed(2)}
+                color={totals.totalPnl>=0?"#00e5b0":"#ff6480"} sub="across all pairs" />
+              <StatPill label="WIN RATE"
+                value={totals.winRate + "%"}
+                color={totals.winRate>=60?"#00e5b0":"#ff6480"} sub={totals.wins + "W / " + totals.losses + "L"} />
+              <StatPill label="TOTAL TRADES"
+                value={totals.totalTrades} color="#4d9fff"
+                sub={totals.wins + " winning · " + totals.losses + " losing"} />
+              <StatPill label="ACTIVE TRADES"
+                value={totals.activePairs} color="#f59e0b"
+                sub={"across " + PAIRS.length + " pairs"} />
+              {lastUpdate && (
+                <StatPill label="LAST UPDATE"
+                  value={lastUpdate.toTimeString().slice(0,8)}
+                  color="#6b7a99" sub="polls every 10s" />
+              )}
+            </div>
+
+            {/* Pair cards */}
+            <div style={{ display:"flex",gap:16,flexWrap:"wrap" }}>
+              {PAIRS.map(sym => <PairCard key={sym} symbol={sym} data={pairData[sym]} />)}
+            </div>
+
+            {/* Footer */}
+            <div style={{
+              marginTop:32,padding:"16px 20px",borderRadius:10,
+              background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,255,255,0.05)",
+              display:"flex",justifyContent:"space-between",alignItems:"center",
+            }}>
+              <span style={{ fontSize:11,color:"#2d3748",letterSpacing:2 }}>
+                CORTEXFX ENGINE v2.1 · PPO ACTOR-CRITIC · MULTI-PAIR LSTM+ATTENTION
+              </span>
+              <span style={{ fontSize:11,color:"#2d3748",fontFamily:"'IBM Plex Mono',monospace" }}>
+                {now.toUTCString()}
+              </span>
+            </div>
+          </div>
+
+          <LogPanel logs={logs} visible={showLogs} onClose={() => setShowLogs(false)} />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<Dashboard />);
+  </script>
+</body>
+</html>

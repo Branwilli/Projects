@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email</title>
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url(https://wallpapercave.com/wp/wp3598837.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Sidebar */
+    .sidenav {
+      position: fixed;
+      top: 0;
+      left: -260px; /* Initially hidden */
+      width: 250px;
+      height: 100vh;
+      background-color: rgba(51, 51, 51, 0.9);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      transition: left 0.3s ease; /* Animation */
+      z-index: 1000;
+    }
+
+    .sidenav.open {
+      left: 0; /* Slide in when open */
+    }
+
+    .sidenav a {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+    }
+
+    .sidenav a:hover {
+      background-color: #575757;
+    }
+
+    .dropdown {
+      margin-bottom: 15px;
+    }
+
+    .dropdown-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .dropdown-content {
+      display: none;
+      flex-direction: column;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
+    /* Sidebar Toggle Button */
+    .toggle-btn {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1100;
+    }
+
+    .toggle-btn:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: black;
+    }
+
+    /* Main Content */
+    #content {
+      display: flex;
+      width: 80%;
+      max-width: 1200px;
+      height: 80%;
+      max-height: 700px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      overflow: hidden; /* Prevent overflow */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #leftPannel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      overflow-y: auto;
+    }
+
+    #leftPannel h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    #clientList {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
+      overflow-y: auto;
+      max-height: calc(100% - 30px);
+    }
+
+    #clientList li:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    #rightPannel {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea, #email-btn {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    #email-btn {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    #email-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Adjustments */
+    @media screen and (max-width: 768px) {
+      #content {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Toggle Button -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Sidebar -->
+  <div class="sidenav" id="sidebar">
+    <!-- Dropdown Menu for Primary Links -->
+    <div class="dropdown">
+      <button class="dropdown-btn">Main Menu</button>
+      <div class="dropdown-content">
+        <a href="#" id="dashboard">Dashboard</a>
+        <a href="#" id="clients">Clients</a>
+        <a href="#" id="email">Email</a>
+        <a href="#" id="profile">Profile</a>
+      </div>
+    </div>
+
+    <!-- Manage Section -->
+    <div class="dropdown">
+      <button class="dropdown-btn">Manage</button>
+      <div class="dropdown-content">
+        <a href="admin-manage-files.html" id="admin-manage-files">Manage Files</a>
+        <a href="#">Manage Users</a>
+        <a href="#">Manage Settings</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content">
+    <div id="leftPannel">
+        <h2>Clients</h2>
+        <ul id="clientList">
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+            <li>Mark</li>
+        </ul>
+    </div>
+    <div id="rightPannel">
+        <form id="emailForm" action="/send_email" method="post">
+            <label for="clientName">Client Email</label>
+            <input type="text" name="to" id="clientName" placeholder="Enter email address" required />
+    
+            <label for="emailSubject">Subject</label>
+            <input type="text" name="subject" id="emailSubject" placeholder="Enter email subject" required />
+    
+            <label for="emailBody">Message</label>
+            <textarea name="message" id="emailBody" rows="5" placeholder="Enter your message" required></textarea>
+    
+            <button id="email-btn">Send Email</button>
+        </form>
+    
+    </div>
+  </div>
+  
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+  <script>
+    const socket = io('http://localhost:5000'); // Connect to the server
+    const emailForm = document.getElementById('emailForm');
+    const statusMessage = document.getElementById('statusMessage');
+
+    // Toggle sidebar functionality
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    // Send email on form submission
+    document.getElementById('email-btn').addEventListener('click', () => {
+      const emailData = {
+        to: document.getElementById('clientName').value,
+        subject: document.getElementById('emailSubject').value,
+        text: document.getElementById('emailBody').value,
+      };
+
+      // Emit the email data to the server
+      socket.emit('send_email', emailData);
+
+      // Handle the server response
+      socket.on('email_status', (data) => {
+        if (data.status === 'success') {
+          statusMessage.textContent = 'Email sent successfully!';
+          statusMessage.style.color = 'green';
+        } else {
+          statusMessage.textContent = `Error: ${data.message}`;
+          statusMessage.style.color = 'red';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

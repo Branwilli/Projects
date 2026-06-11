@@ -1,0 +1,71 @@
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.signup-paper {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.signup-avatar {
+  margin: 8px;
+  background-color: #3f51b5 !important;
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.signup-form {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.signup-submit {
+  margin: 24px 0 16px !important;
+  padding: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  background: linear-gradient(45deg, #3f51b5 0%, #5c6bc0 100%) !important;
+}
+
+.signup-link {
+  color: #3f51b5 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+.signup-link:hover {
+  text-decoration: underline !important;
+}
+
+.password-toggle {
+  color: #757575 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .signup-paper {
+    padding: 24px;
+    box-shadow: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+  }
+  
+  .signup-container {
+    background: #f5f7fa;
+  }
+}
+  
